@@ -1,30 +1,32 @@
 set nocompatible
 filetype off
 
-set runtimepath+=$HOME/.vim/bundle/vundle
-call vundle#rc()
+set runtimepath+=$HOME/.vim/bundle/Vundle.vim
+call vundle#begin()
 
 " Let Vundle manage Vundle
-Bundle 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " Bundles managed by Vundle
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'bling/vim-airline'
-Bundle 'ervandew/supertab'
-Bundle 'honza/vim-snippets'
-Bundle 'kien/ctrlp.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'mileszs/ack.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
-Bundle 'vim-scripts/a.vim'
-Bundle 'vim-scripts/Gundo'
-Bundle 'vim-scripts/matchit.zip'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'SirVer/ultisnips'
-Bundle 'Valloric/YouCompleteMe'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'ervandew/supertab'
+Plugin 'honza/vim-snippets'
+Plugin 'kien/ctrlp.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'mileszs/ack.vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'sheerun/vim-polyglot'
+Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-surround'
+Plugin 'vim-scripts/a.vim'
+Plugin 'vim-scripts/Gundo'
+Plugin 'vim-scripts/matchit.zip'
+Plugin 'SirVer/ultisnips'
+Plugin 'Valloric/YouCompleteMe'
 
+call vundle#end()
 filetype plugin indent on
 
 " Start custom settings
@@ -78,11 +80,18 @@ let g:gundo_preview_bottom = 1
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 " Bi-directional find motion
 nmap s <Plug>(easymotion-s2)
-" Turn on case sensitive feature
+omap t <Plug>(easymotion-bd-tl)
+" Turn on case insensitive feature
 let g:EasyMotion_smartcase = 1
 " JK motions: line motions
+map <leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
+map <leader>h <Plug>(easymotion-linebackward)
+" Keep cursor column when JK motion
+let g:Easymotion_startofline = 0
+map / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
 
 " Supertab plugin settings
 let g:SuperTabDefaultCompletionType = '<C-n>'
