@@ -1,32 +1,27 @@
-set nocompatible
-filetype off
+if &compatible
+    set nocompatible
+endif
 
-set runtimepath+=$HOME/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('$HOME/.vim/bundle')
 
-" Let Vundle manage Vundle
-Plugin 'VundleVim/Vundle.vim'
+" Bundles managed by vim-plug
+Plug 'altercation/vim-colors-solarized'
+Plug 'bling/vim-airline'
+Plug 'easymotion/vim-easymotion'
+Plug 'ervandew/supertab'
+Plug 'honza/vim-snippets'
+Plug 'kien/ctrlp.vim'
+Plug 'majutsushi/tagbar'
+Plug 'mileszs/ack.vim'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'sheerun/vim-polyglot'
+Plug 'sjl/gundo.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'SirVer/ultisnips'
+Plug 'Valloric/YouCompleteMe'
 
-" Bundles managed by Vundle
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'easymotion/vim-easymotion'
-Plugin 'ervandew/supertab'
-Plugin 'honza/vim-snippets'
-Plugin 'kien/ctrlp.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'mileszs/ack.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-surround'
-Plugin 'vim-scripts/a.vim'
-Plugin 'vim-scripts/Gundo'
-Plugin 'vim-scripts/matchit.zip'
-Plugin 'SirVer/ultisnips'
-Plugin 'Valloric/YouCompleteMe'
+call plug#end()
 
-call vundle#end()
 filetype plugin indent on
 
 " Start custom settings
@@ -65,11 +60,11 @@ let g:airline_theme = 'dark'
 " Ack plugin settings
 let g:ackprg = 'ag --nogroup --nocolor --column'
 
-" Tagbar plugin settings
-nnoremap <F4> :TagbarToggle<CR>
-
 " Nerdtree plugin settings
 nnoremap <F3> :NERDTreeToggle<CR>
+
+" Tagbar plugin settings
+nnoremap <F4> :TagbarToggle<CR>
 
 " Gundo plugin settings
 nnoremap <F5> :GundoToggle<CR>
@@ -93,14 +88,11 @@ let g:Easymotion_startofline = 0
 map / <Plug>(easymotion-sn)
 omap / <Plug>(easymotion-tn)
 
-" Supertab plugin settings
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
 " Ultisnips plugin settings
+let g:UltiSnipsEnableSnipMate = 0
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<S-tab>'
-let g:UltiSnipsListSnippets = '<leader>ul'
+let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
 
 " YouCompleteMe plugin settings
 nnoremap <leader>yd :YcmDiags<CR>
@@ -110,6 +102,7 @@ let g:ycm_error_symbol = '>>'
 let g:ycm_warning_symbol = '>*'
 let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_key_invoke_completion = '<leader>yy'
 let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+" Make YCM compatible with UltiSnips
+let g:SuperTabDefaultCompletionType = '<C-n>'
