@@ -32,15 +32,10 @@ set list    " Set tab and tailing blanks visible
 set listchars=tab:>-,trail:-
 set laststatus=2    " Always show status line
 set backspace=indent,eol,start
+set nu
 
 syntax enable
-if has("gui_vimr")
-    set termguicolors
-    set background=light
-    let g:solarized_termcolors = 256
-else
-    set background=dark
-endif
+set background=dark
 colorscheme solarized
 
 " Custom map leader
