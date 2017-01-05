@@ -53,10 +53,7 @@ set fileencodings=ucs-bom,utf-8,cp936,latin1
 let g:airline_powerline_fonts = 1
 let g:airline_section_z = '%#__accent_bold#%4l%#__restore__#,%3c %{g:airline_symbols.linenr} %3p%%'
 let g:airline_theme = 'dark'
-
-if executable('ag')
-    let g:ackprg = 'ag --nogroup --nocolor --column'
-endif
+let g:airline#extensions#tabline#enabled = 1
 
 " Nerdtree plugin settings
 nnoremap <F3> :NERDTreeToggle<CR>
