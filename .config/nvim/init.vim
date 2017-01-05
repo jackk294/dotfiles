@@ -5,6 +5,7 @@ endif
 call plug#begin('$HOME/.config/nvim/bundle')
 
 " Bundles managed by vim-plug
+Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
 Plug 'easymotion/vim-easymotion'
