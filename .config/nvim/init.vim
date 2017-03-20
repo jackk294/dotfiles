@@ -6,12 +6,12 @@ call plug#begin('$HOME/.config/nvim/bundle')
 
 " Bundles managed by vim-plug
 Plug 'airblade/vim-gitgutter'
-Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
 Plug 'easymotion/vim-easymotion'
 Plug 'ervandew/supertab'
 Plug 'honza/vim-snippets'
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
+Plug 'iCyMind/NeoSolarized'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'sheerun/vim-polyglot'
@@ -37,7 +37,7 @@ set nu
 
 syntax enable
 set background=dark
-colorscheme solarized
+colorscheme NeoSolarized
 
 " Custom map leader
 let mapleader = ','
