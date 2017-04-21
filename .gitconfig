@@ -1,0 +1,34 @@
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[user]
+	name = FengQin
+	email = jackk294@gmail.com
+[push]
+	default = simple
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore
+	ignorecase = false
+[mergetool]
+	keepBackup = true
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	pl = pull --rebase
+[merge]
+	tool = vimdiff
+[diff]
+	tool = vimdiff
+[difftool "vimdiff"]
+	path = nvim
+[difftool]
+	prompt = false
+	trustexitcode = true
