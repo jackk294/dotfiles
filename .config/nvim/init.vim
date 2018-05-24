@@ -31,12 +31,20 @@ set shiftwidth=4
 set expandtab
 set list    " Set tab and tailing blanks visible
 set listchars=tab:>-,trail:-
-set laststatus=2    " Always show status line
 set backspace=indent,eol,start
 set nu
-
 syntax enable
-set background=dark
+
+if exists('g:gui_oni')
+    set laststatus=0
+    set background=light
+
+    " Disable airline for oni gui
+    let g:loaded_airline = 1
+else
+    set laststatus=2
+    set background=dark
+endif
 colorscheme NeoSolarized
 
 " Custom map leader
