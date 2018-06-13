@@ -8,10 +8,14 @@ if dein#load_state('$HOME/.config/nvim/bundles')
     call dein#begin('$HOME/.config/nvim/bundles')
     call dein#add('$HOME/.config/nvim/bundles')
 
+    " Colorschemes
+    call dein#add('altercation/vim-colors-solarized')
+    call dein#add('iCyMind/NeoSolarized')
+
     call dein#add('Shougo/denite.nvim')
     call dein#add('ozelentok/denite-gtags', {'depends': ['denite']})
     call dein#add('Valloric/YouCompleteMe', {'on_ft': ['c', 'cpp']})
-    call dein#add('altercation/vim-colors-solarized')
+    call dein#add('airblade/vim-gitgutter')
     call dein#add('easymotion/vim-easymotion')
     call dein#add('tpope/vim-fugitive')
     call dein#add('vim-airline/vim-airline')
@@ -37,7 +41,11 @@ set nu
 set background=dark
 
 " Color scheme
-colorscheme solarized
+set termguicolors
+colorscheme NeoSolarized
+let g:neosolarized_bold = 1
+let g:neosolarized_underline = 1
+let g:neosolarized_italic = 0
 
 " Custom map leader
 let mapleader = ','
@@ -87,3 +95,5 @@ let g:ycm_confirm_extra_conf = 0
 let g:ycm_autoclose_preview_window_after_completion = 1
 let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
+let g:ycm_filetype_whitelist = {'c': 1, 'cpp': 1}
+let g:ycm_python_binary_path = 'python3'
