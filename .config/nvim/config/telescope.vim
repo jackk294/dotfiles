@@ -5,15 +5,9 @@ telescope.setup {
         find_files = {
             find_command = {'fd', '--type', 'f', '--strip-cwd-prefix', '--no-ignore'}
         }
-    },
-    extensions = {
-        fzy_native = {
-            override_generic_sorter = false,
-            override_file_sorter = true,
-        }
     }
 }
-telescope.load_extension('fzy_native')
+telescope.load_extension('fzf')
 EOF
 
 nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files({ previewer=false })<cr>

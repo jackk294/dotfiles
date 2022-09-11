@@ -1,6 +1,4 @@
 lua << EOF
-local nvim_lsp = require('lspconfig')
-
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
 local on_attach = function(client, bufnr)
@@ -23,11 +21,18 @@ local on_attach = function(client, bufnr)
     buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
 end
 
+local lspconfig = require('lspconfig')
+local capabilities = require('cmp_nvim_lsp').update_capabilities(
+    vim.lsp.protocol.make_client_capabilities()
+)
+local servers = { 'clangd', 'pylsp' }
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'clangd', 'pylsp' }
 for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup { on_attach = on_attach }
+    lspconfig[lsp].setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+    }
 end
 
 EOF
